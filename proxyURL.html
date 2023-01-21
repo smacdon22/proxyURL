@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
+
 <style>
-	body{
+	.preProxy{
 	font-family: "Lato", Helvetica Neue, Arial, sans-serif;
 	font-size: 16px;
 	padding: 4px 8px;
@@ -12,20 +11,33 @@
 	font-size: 16px;
 	width: calc(100% - 10em);
 	padding: 4px 8px;
+	display: block;
+	margin: 0 auto;
 	}
 	#submitBt{
-	border: 2px solid #003365;
+	border: 4px solid #003365;
 	font-family: "Lato", Helvetica Neue, Arial, sans-serif;
 	font-size: 16px;
 	padding: 4px 8px;
-	width: 8em;
+	width: 9em;
+	display: block;
+	margin: 1em auto;
+	background-color: #00aeef;
+	color: white;
+	font-weight: bold;
 	}
-	p{
+	#submitBt:hover{
+	cursor: pointer;
+	background-color: #4187d1;
+	}
+	.preProxy p{
 	font-family: "Lato", Helvetica Neue, Arial, sans-serif;
 	font-size: 16px;
 	border: 2px solid #ffffff;
 	background-color: #ffffff;
 	padding: 4px 8px;
+	display: block;
+	margin: 0 auto;
 	}
 </style>
 <script>
@@ -51,11 +63,10 @@
 	<title>proxyurl</title>
 	<meta name="generator" content="BBEdit 14.6" />
 </head>
-<body>
+	<div class="preProxy">
 	<form id="proxy" onsubmit="getProxy(oldURL.value);return false;">
-		<span><input id="oldURL" name="oldURL" type="text" placeholder="enter URL"/>
-		<input type="submit" id="submitBt"/></span>
-		<p id="newURL"></p>
+		<input id="oldURL" name="oldURL" type="text" placeholder="enter URL..."/>
+		<input type="submit" id="submitBt" value="Get Proxy URL"/>
+		<p id="newURL"><br /><br /></p>
 	</form>
-</body>
-</html>
+	</div>
