@@ -1,4 +1,3 @@
-
 <style>
 	.preProxy{
 	font-family: "Lato", Helvetica Neue, Arial, sans-serif;
@@ -20,11 +19,20 @@
 	font-size: 16px;
 	padding: 4px 8px;
 	width: 9em;
-	display: block;
-	margin: 1em auto;
+	display: inline-block;
+	margin: 1em 2em;
 	background-color: #00aeef;
 	color: white;
 	font-weight: bold;
+	}
+	#copyCheck{
+	display: inline-block;
+	}
+	#submitCheck{
+	display: block;
+	margin: 0 auto;
+	width: max-content;
+	padding-left: 11vw;
 	}
 	#submitBt:hover{
 	cursor: pointer;
@@ -41,12 +49,19 @@
 	}
 </style>
 <script>
-	function getProxy(x){
+	function getProxy(x, copy_bool){
 		var newURL = "https://libproxy.stfx.ca/login?url=" + x;
 		document.getElementById("newURL").style.borderColor = "#a1db9c";
 		document.getElementById("newURL").style.backgroundColor = "#e2ffdf";
-		document.getElementById("newURL").innerHTML = "New URL: " + newURL + "<br /> Copied to clipboard!";
-		navigator.clipboard.writeText(newURL);
+		var newInnerHTML = "New URL: " + newURL + "<br /> ";
+		if (copy_bool){
+			navigator.clipboard.writeText(newURL);
+			newInnerHTML += "Copied to clipboard!";
+		}
+		else{
+			newInnerHTML += "<br />";
+		}
+		document.getElementById("newURL").innerHTML = newInnerHTML;
 		return;
 	}
 </script>
@@ -60,13 +75,15 @@
 
 	Javascript would return = https://libproxy.stfx.ca/login?url=https://doi.org/10.1097/ANS.0b013e31824fe6ca
 	-->
-	<title>proxyurl</title>
 	<meta name="generator" content="BBEdit 14.6" />
 </head>
 	<div class="preProxy">
-	<form id="proxy" onsubmit="getProxy(oldURL.value);return false;">
+	<form id="proxy" onsubmit="getProxy(oldURL.value, copyCheck.checked);return false;">
 		<input id="oldURL" name="oldURL" type="text" placeholder="enter URL..."/>
+		<span id="submitCheck">
 		<input type="submit" id="submitBt" value="Get Proxy URL"/>
+		<input id="copyCheck" name="copyCheck" type="checkbox" checked="false"/>
+		<label for="copyCheck">Copy to clipboard</label></span>
 		<p id="newURL"><br /><br /></p>
 	</form>
 	</div>
