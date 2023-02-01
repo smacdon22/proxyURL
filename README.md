@@ -1,5 +1,5 @@
 # proxyURL
-To access StFX Library subscriptions and read full texts, enter the URL and then paste the new pre-proxied URL into your browser.
+To access StFX Library subscriptions and read full texts, enter the URL and then paste the new proxied URL into your browser.
 
 For example, off campus this link will not allow access to the full article (https://doi.org/10.1097/ANS.0b013e31824fe6ca).
 
