@@ -53,7 +53,7 @@
 		var newURL = "https://libproxy.stfx.ca/login?url=" + x;
 		document.getElementById("newURL").style.borderColor = "#a1db9c";
 		document.getElementById("newURL").style.backgroundColor = "#e2ffdf";
-		var newInnerHTML = "New URL: " + newURL + "<br /> ";
+		var newInnerHTML = "New URL: <a href=\"" + newURL + "\">"+newURL+"</a><br /> ";
 		if (copy_bool){
 			navigator.clipboard.writeText(newURL);
 			newInnerHTML += "Copied to clipboard!";
